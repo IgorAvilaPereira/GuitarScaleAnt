@@ -8,11 +8,8 @@ Software desenvolvido em Java para auxiliar professores e estudantes de violão 
 ## Executar
 
 O executável .jar está na pasta **dist**. 
-
-<!--
-No terminal execute:
+Funcionará clicando 2 cliques ou pelo terminal. No terminal execute:
 
 ```
-java -jar GuitarScale-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -jar GuitarScaleAnt.jar 
 ```
--->
