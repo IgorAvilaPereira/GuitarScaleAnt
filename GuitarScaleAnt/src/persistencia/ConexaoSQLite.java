@@ -4,6 +4,7 @@
  */
 package persistencia;
 
+import java.io.File;
 /**
  *
  * @author iapereira
@@ -18,12 +19,16 @@ public class ConexaoSQLite {
     private String url;
 
     public Connection getMyConnection() {
+        String path = "src/";
+        File file = new File(path);
+        String absolutePath = file.getAbsolutePath();
         Connection conn = null;
         if (OSInfo.getOs() == OSInfo.OS.UNIX) {
-            this.url = "jdbc:sqlite:database.db";
+            this.url = "jdbc:sqlite:"+
+        absolutePath.replace("dist/", "")+"/database.db";
         } else {
             this.url = "jdbc:sqlite:database.db";
-        }        
+        }
         try {
             conn = DriverManager.getConnection(url);
             return conn;
@@ -32,4 +37,20 @@ public class ConexaoSQLite {
         }
         return null;
     }
+
+    // public Connection getMyConnection() {
+    //     Connection conn = null;
+    //     if (OSInfo.getOs() == OSInfo.OS.UNIX) {
+    //         this.url = "jdbc:sqlite:database.db";
+    //     } else {
+    //         this.url = "jdbc:sqlite:database.db";
+    //     }        
+    //     try {
+    //         conn = DriverManager.getConnection(url);
+    //         return conn;
+    //     } catch (SQLException e) {
+    //         System.out.println(e.getMessage());
+    //     }
+    //     return null;
+    // }
 }
