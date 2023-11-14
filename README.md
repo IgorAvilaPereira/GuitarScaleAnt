@@ -4,11 +4,12 @@ Software desenvolvido em Java para auxiliar professores e estudantes de violão 
 
 ![](demo.jpeg)
 
-<!--
+
 ## Executar
 
 O executável .jar está na pasta **dist**. 
 
+<!--
 No terminal execute:
 
 ```
