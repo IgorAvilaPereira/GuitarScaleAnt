@@ -16,6 +16,7 @@ import java.sql.*;
  * @author iapereira
  */
 public class ConexaoSQLite {
+
     private String url;
 
     public Connection getMyConnection() {
@@ -24,9 +25,14 @@ public class ConexaoSQLite {
         String absolutePath = file.getAbsolutePath();
         Connection conn = null;
         if (OSInfo.getOs() == OSInfo.OS.UNIX) {
-            this.url = "jdbc:sqlite:"+
-        absolutePath.replace("dist/", "")+"/database.db";
+            this.url = "jdbc:sqlite:"
+                    + absolutePath.replace("dist/", "") + "/database.db";
         } else {
+            path = "src\\";
+            file = new File(path);
+            absolutePath = file.getAbsolutePath();
+            this.url = "jdbc:sqlite:"
+                    + absolutePath.replace("dist\\", "") + "\\database.db";
             this.url = "jdbc:sqlite:database.db";
         }
         try {
