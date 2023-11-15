@@ -597,7 +597,6 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jButton43);
         jButton43.setBounds(670, 340, 85, 23);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/home/iapereira/git/GuitarScale/GuitarScale/violao.png")); // NOI18N
         jButton1.setPreferredSize(new java.awt.Dimension(500, 500));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1093,9 +1092,11 @@ public class Main extends javax.swing.JFrame {
                                     preparedStatement.close();
                                 } catch (SQLException ex) {
                                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+//                                    break;
                                 }
                             }
                         }
+                        JOptionPane.showMessageDialog(this, "Shape atualizado com sucesso!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "Shape não encontrado!", "Guitar Scale", JOptionPane.ERROR_MESSAGE);
