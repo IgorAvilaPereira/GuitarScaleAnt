@@ -1250,6 +1250,8 @@ public class Main extends javax.swing.JFrame {
             button.setBackground(Color.LIGHT_GRAY);
             button.setForeground(Color.black);
             button.setText("---");
+        } else {
+            JOptionPane.showMessageDialog(this, "Opção inválida!", "Guitar Scale", JOptionPane.ERROR_MESSAGE);
         }
     }
 
