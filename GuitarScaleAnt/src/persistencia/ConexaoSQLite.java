@@ -16,13 +16,13 @@ import java.sql.*;
  * @author iapereira
  */
 public class ConexaoSQLite {
+
     private String url;
 
     public Connection getMyConnection() {
         String path = "src/";
         File file = new File(path);
         String absolutePath = file.getAbsolutePath();
-        
         // linux
         if (OSInfo.getOs() == OSInfo.OS.UNIX) {
             this.url = "jdbc:sqlite:"

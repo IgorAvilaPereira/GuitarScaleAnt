@@ -35,21 +35,21 @@ public class Main extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public Main() throws SQLException {
-        initComponents();            
+        initComponents();
         String path = "src/";
         File file = new File(path);
-        String absolutePath = file.getAbsolutePath();        
+        String absolutePath = file.getAbsolutePath();
         String path_violao = "";
         // linux
-        if (OSInfo.getOs() == OSInfo.OS.UNIX) {            
+        if (OSInfo.getOs() == OSInfo.OS.UNIX) {
             path_violao = absolutePath.replace("dist/", "") + "/violao.png";
         } else { // windows
             path = "src\\";
             file = new File(path);
             absolutePath = file.getAbsolutePath();
-            path_violao = absolutePath.replace("dist\\", "") + "\\violao.png";            
-        }        
-        jButton1.setIcon(new javax.swing.ImageIcon(path_violao)); 
+            path_violao = absolutePath.replace("dist\\", "") + "\\violao.png";
+        }
+        jButton1.setIcon(new javax.swing.ImageIcon(path_violao));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Locale locale = new Locale("pt", "BR");
         JOptionPane.setDefaultLocale(locale);
@@ -931,12 +931,14 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_reiniciarActionPerformed
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        ConexaoSQLite myConnection = new ConexaoSQLite();
+
         try {
             int id = 0;
             String nome = JOptionPane.showInputDialog(this, "Qual nome?", "GuitarScale", JOptionPane.INFORMATION_MESSAGE);
             if (nome != null) {
                 if (!nome.isEmpty()) {
-                    ConexaoSQLite myConnection = new ConexaoSQLite();
+
                     Connection connection = myConnection.getMyConnection();
                     String sql = "INSERT INTO shapes (nome) values (?) RETURNING id;";
                     PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -945,13 +947,17 @@ public class Main extends javax.swing.JFrame {
                     if (rs.next()) {
                         id = rs.getInt("id");
                         preparedStatement.close();
+                        connection.close();
 
                         Iterator iterator = this.violao.entrySet().iterator();
                         while (iterator.hasNext()) {
                             Entry<Integer, JButton> entry = (Entry) iterator.next();
                             int idButton = entry.getKey();
                             JButton button = entry.getValue();
+
                             if (button.getText().equals("1") || button.getText().equals("2") || button.getText().equals("3") || button.getText().equals("4")) {
+
+                                connection = myConnection.getMyConnection();
                                 sql = "INSERT INTO notas (botao, dedo, dominante, shape_id) values (?, ?, ?, ?);";
                                 preparedStatement = connection.prepareStatement(sql);
                                 preparedStatement.setString(1, String.valueOf(idButton));
@@ -964,11 +970,15 @@ public class Main extends javax.swing.JFrame {
                                 preparedStatement.setInt(4, id);
                                 preparedStatement.execute();
                                 preparedStatement.close();
+                                connection.close();
                             }
                         }
+                        JOptionPane.showMessageDialog(this, "Shape adicionado com sucesso!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
+                        this.list1.add(id + "-" + nome);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Erro em salvar o shape!", "Guitar Scale", JOptionPane.ERROR_MESSAGE);
+                        connection.close();
                     }
-                    this.list1.add(id + "-" + nome);
-                    connection.close();
                 } else {
                     JOptionPane.showMessageDialog(this, "Favor preencher o nome do shape!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -979,73 +989,49 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton44ActionPerformed
 
     private void list1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list1ActionPerformed
-        int resp = JOptionPane.showConfirmDialog(this, "Restaurar?", "GuitarScale", JOptionPane.YES_NO_OPTION);
-        boolean resposta = (resp == JOptionPane.YES_OPTION);
-        if (!resposta) {
-            resp = JOptionPane.showConfirmDialog(this, "Deletar?", "GuitarScale", JOptionPane.YES_NO_OPTION);
-            resposta = (resp == JOptionPane.YES_OPTION);
-            if (resposta) {
-//                deletar
+        if (this.idShapeRestaurado > 0 && this.idShapeRestaurado == Integer.parseInt(this.list1.getSelectedItem().split("-")[0])) {
+            deletarShape();
+        } else {
+            int resp = JOptionPane.showConfirmDialog(this, "Restaurar?", "GuitarScale", JOptionPane.YES_NO_OPTION);
+            boolean resposta = (resp == JOptionPane.YES_OPTION);
+            if (!resposta) {
+                deletarShape();
+            } else {
+                // restaurar
                 if (!this.list1.getSelectedItem().isEmpty()) {
+                    this.reiniciarViolao();
                     int id = Integer.parseInt(this.list1.getSelectedItem().split("-")[0]);
+                    ConexaoSQLite myConnection = new ConexaoSQLite();
+                    Connection connection = myConnection.getMyConnection();
+                    String sql = "SELECT * from notas where shape_id = ?;";
+                    PreparedStatement preparedStatement = null;
                     try {
-                        ConexaoSQLite myConnection = new ConexaoSQLite();
-                        Connection connection = myConnection.getMyConnection();
-                        String sql = "DELETE FROM notas where shape_id = ?;";
-                        PreparedStatement preparedStatement;
                         preparedStatement = connection.prepareStatement(sql);
                         preparedStatement.setInt(1, id);
-                        preparedStatement.execute();
-                        sql = "DELETE FROM shapes where id = ?;";
-                        preparedStatement = connection.prepareStatement(sql);
-                        preparedStatement.setInt(1, id);
-                        preparedStatement.execute();
+                        ResultSet rs = preparedStatement.executeQuery();
+                        while (rs.next()) {
+                            JButton button = this.violao.get(Integer.valueOf(rs.getString("botao")));
+                            button.setText(rs.getString("dedo"));
+                            if (rs.getBoolean("dominante")) {
+                                button.setForeground(Color.white);
+                                button.setBackground(Color.red);
+                            } else {
+                                button.setForeground(Color.white);
+                                button.setBackground(Color.BLACK);
+                            }
+                        }
+                        preparedStatement.close();
                         connection.close();
-                        this.list1.remove(this.list1.getSelectedItem());
-                        this.jButton45.setVisible(false);
-                        this.idShapeRestaurado = 0;
+
+                        this.idShapeRestaurado = id;
+
+                        this.jButton45.setVisible(true);
                     } catch (SQLException ex) {
                         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "Selecione algum shape na lista!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
                 }
-            }
-        } else {
-            // restaurar
-            if (!this.list1.getSelectedItem().isEmpty()) {
-                this.reiniciarViolao();
-                int id = Integer.parseInt(this.list1.getSelectedItem().split("-")[0]);
-                ConexaoSQLite myConnection = new ConexaoSQLite();
-                Connection connection = myConnection.getMyConnection();
-                String sql = "SELECT * from notas where shape_id = ?;";
-                PreparedStatement preparedStatement = null;
-                try {
-                    preparedStatement = connection.prepareStatement(sql);
-                    preparedStatement.setInt(1, id);
-                    ResultSet rs = preparedStatement.executeQuery();
-                    while (rs.next()) {
-                        JButton button = this.violao.get(Integer.valueOf(rs.getString("botao")));
-                        button.setText(rs.getString("dedo"));
-                        if (rs.getBoolean("dominante")) {
-                            button.setForeground(Color.white);
-                            button.setBackground(Color.red);
-                        } else {
-                            button.setForeground(Color.white);
-                            button.setBackground(Color.BLACK);
-                        }
-                    }
-                    preparedStatement.close();
-                    connection.close();
-
-                    this.idShapeRestaurado = id;
-
-                    this.jButton45.setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Selecione algum shape na lista!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_list1ActionPerformed
@@ -1060,7 +1046,7 @@ public class Main extends javax.swing.JFrame {
                 preparedStatement.setInt(1, this.idShapeRestaurado);
                 ResultSet rs = preparedStatement.executeQuery();
                 if (rs.next()) {
-                    int resp = JOptionPane.showConfirmDialog(this, "Você deseja mesmo atualizar " + this.idShapeRestaurado+"-"+rs.getString("nome") + " ?", "GuitarScale", JOptionPane.YES_NO_OPTION);
+                    int resp = JOptionPane.showConfirmDialog(this, "Você deseja mesmo atualizar " + this.idShapeRestaurado + "-" + rs.getString("nome") + " ?", "GuitarScale", JOptionPane.YES_NO_OPTION);
                     boolean resposta = (resp == JOptionPane.YES_OPTION);
                     if (resposta) {
                         try {
@@ -1115,8 +1101,8 @@ public class Main extends javax.swing.JFrame {
         Iterator iterator = this.violao.entrySet().iterator();
         while (iterator.hasNext()) {
             Entry<Integer, JButton> entry = (Entry) iterator.next();
-            JButton button = entry.getValue();           
-            if (!button.getText().equals("1") && !button.getText().equals("2") && !button.getText().equals("3") && !button.getText().equals("4")){            
+            JButton button = entry.getValue();
+            if (!button.getText().equals("1") && !button.getText().equals("2") && !button.getText().equals("3") && !button.getText().equals("4")) {
                 button.setVisible(true);
                 button.setBackground(Color.LIGHT_GRAY);
                 button.setForeground(Color.black);
@@ -1273,6 +1259,39 @@ public class Main extends javax.swing.JFrame {
 //            if (!button.getText().equals("1") && !button.getText().equals("2") && !button.getText().equals("3") && !button.getText().equals("4")){            
 //                button.setVisible(false);
 //            }
+        }
+    }
+
+    private void deletarShape() {
+        int resp = JOptionPane.showConfirmDialog(this, "Deletar?", "GuitarScale", JOptionPane.YES_NO_OPTION);
+        boolean resposta = (resp == JOptionPane.YES_OPTION);
+        if (resposta) {
+            if (!this.list1.getSelectedItem().isEmpty()) {
+                int id = Integer.parseInt(this.list1.getSelectedItem().split("-")[0]);
+                try {
+                    ConexaoSQLite myConnection = new ConexaoSQLite();
+                    Connection connection = myConnection.getMyConnection();
+                    String sql = "DELETE FROM notas where shape_id = ?;";
+                    PreparedStatement preparedStatement;
+                    preparedStatement = connection.prepareStatement(sql);
+                    preparedStatement.setInt(1, id);
+                    preparedStatement.execute();
+                    sql = "DELETE FROM shapes where id = ?;";
+                    preparedStatement = connection.prepareStatement(sql);
+                    preparedStatement.setInt(1, id);
+                    preparedStatement.execute();
+                    preparedStatement.close();
+                    connection.close();
+
+                    this.list1.remove(this.list1.getSelectedItem());
+                    this.jButton45.setVisible(false);
+                    this.idShapeRestaurado = 0;
+                } catch (SQLException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione algum shape na lista!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 }
