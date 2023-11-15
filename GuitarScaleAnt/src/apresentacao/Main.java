@@ -5,6 +5,7 @@
 package apresentacao;
 
 import java.awt.Color;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +20,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import persistencia.ConexaoSQLite;
+import persistencia.OSInfo;
 
 /**
  *
@@ -34,6 +36,20 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() throws SQLException {
         initComponents();        
+        String path = "src/";
+        File file = new File(path);
+        String absolutePath = file.getAbsolutePath();        
+        String path_violao = "";
+        // linux
+        if (OSInfo.getOs() == OSInfo.OS.UNIX) {            
+            path_violao = absolutePath.replace("dist/", "") + "/violao.png";
+        } else { // windows
+            path = "src\\";
+            file = new File(path);
+            absolutePath = file.getAbsolutePath();
+            path_violao = absolutePath.replace("dist\\", "") + "\\violao.png";            
+        }        
+        jButton1.setIcon(new javax.swing.ImageIcon(path_violao)); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Locale locale = new Locale("pt", "BR");
         JOptionPane.setDefaultLocale(locale);
