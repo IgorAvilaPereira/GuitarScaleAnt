@@ -1092,7 +1092,7 @@ public class Main extends javax.swing.JFrame {
                                     preparedStatement.close();
                                 } catch (SQLException ex) {
                                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-//                                    break;
+//                                  break;
                                 }
                             }
                         }
