@@ -1263,6 +1263,8 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void deletarShape() {
+                
+        
         int resp = JOptionPane.showConfirmDialog(this, "Deletar?", "GuitarScale", JOptionPane.YES_NO_OPTION);
         boolean resposta = (resp == JOptionPane.YES_OPTION);
         if (resposta) {
@@ -1282,11 +1284,12 @@ public class Main extends javax.swing.JFrame {
                     preparedStatement.execute();
                     preparedStatement.close();
                     connection.close();
-
+                    JOptionPane.showMessageDialog(this, "Shape deletado com sucesso!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
                     this.list1.remove(this.list1.getSelectedItem());
                     this.jButton45.setVisible(false);
                     this.idShapeRestaurado = 0;
                 } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(this, "Não foi possível deletar o shape!", "Guitar Scale", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
