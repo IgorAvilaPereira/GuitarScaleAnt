@@ -35,7 +35,7 @@ public class Main extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public Main() throws SQLException {
-        initComponents();        
+        initComponents();            
         String path = "src/";
         File file = new File(path);
         String absolutePath = file.getAbsolutePath();        
