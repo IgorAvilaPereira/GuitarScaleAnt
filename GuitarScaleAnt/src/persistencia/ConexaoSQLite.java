@@ -16,18 +16,18 @@ import java.sql.*;
  * @author iapereira
  */
 public class ConexaoSQLite {
-
     private String url;
 
     public Connection getMyConnection() {
         String path = "src/";
         File file = new File(path);
         String absolutePath = file.getAbsolutePath();
-        Connection conn = null;
+        
+        // linux
         if (OSInfo.getOs() == OSInfo.OS.UNIX) {
             this.url = "jdbc:sqlite:"
                     + absolutePath.replace("dist/", "") + "/database.db";
-        } else {
+        } else { // windows
             path = "src\\";
             file = new File(path);
             absolutePath = file.getAbsolutePath();
@@ -36,27 +36,10 @@ public class ConexaoSQLite {
             this.url = "jdbc:sqlite:database.db";
         }
         try {
-            conn = DriverManager.getConnection(url);
-            return conn;
+            return DriverManager.getConnection(url);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return null;
     }
-
-    // public Connection getMyConnection() {
-    //     Connection conn = null;
-    //     if (OSInfo.getOs() == OSInfo.OS.UNIX) {
-    //         this.url = "jdbc:sqlite:database.db";
-    //     } else {
-    //         this.url = "jdbc:sqlite:database.db";
-    //     }        
-    //     try {
-    //         conn = DriverManager.getConnection(url);
-    //         return conn;
-    //     } catch (SQLException e) {
-    //         System.out.println(e.getMessage());
-    //     }
-    //     return null;
-    // }
 }
