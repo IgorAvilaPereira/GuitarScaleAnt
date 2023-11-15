@@ -1045,6 +1045,8 @@ public class Main extends javax.swing.JFrame {
                 } catch (SQLException ex) {
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione algum shape na lista!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_list1ActionPerformed
@@ -1059,7 +1061,7 @@ public class Main extends javax.swing.JFrame {
                 preparedStatement.setInt(1, this.idShapeRestaurado);
                 ResultSet rs = preparedStatement.executeQuery();
                 if (rs.next()) {
-                    int resp = JOptionPane.showConfirmDialog(this, "Você deseja mesmo atualizar " + rs.getString("nome") + " ?", "GuitarScale", JOptionPane.YES_NO_OPTION);
+                    int resp = JOptionPane.showConfirmDialog(this, "Você deseja mesmo atualizar " + this.idShapeRestaurado+"-"+rs.getString("nome") + " ?", "GuitarScale", JOptionPane.YES_NO_OPTION);
                     boolean resposta = (resp == JOptionPane.YES_OPTION);
                     if (resposta) {
                         try {
