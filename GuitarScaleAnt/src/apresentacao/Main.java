@@ -948,8 +948,11 @@ public class Main extends javax.swing.JFrame {
                         id = rs.getInt("id");
                         preparedStatement.close();
                         connection.close();
-
+//                        String sqlInsertNotas = "";
                         Iterator iterator = this.violao.entrySet().iterator();
+                        connection = myConnection.getMyConnection();
+                        connection.setAutoCommit(false);
+
                         while (iterator.hasNext()) {
                             Entry<Integer, JButton> entry = (Entry) iterator.next();
                             int idButton = entry.getKey();
@@ -957,7 +960,10 @@ public class Main extends javax.swing.JFrame {
 
                             if (button.getText().equals("1") || button.getText().equals("2") || button.getText().equals("3") || button.getText().equals("4")) {
 
-                                connection = myConnection.getMyConnection();
+//                                sqlInsertNotas += "INSERT INTO notas (botao, dedo, dominante, shape_id) "
+//                                        + "values ('" + String.valueOf(idButton) + "', "
+//                                        + "'" + button.getText() + "', " + ((button.getBackground() == Color.red) ? 1 : 0) + "," + id + ");";
+//                                connection = myConnection.getMyConnection();
                                 sql = "INSERT INTO notas (botao, dedo, dominante, shape_id) values (?, ?, ?, ?);";
                                 preparedStatement = connection.prepareStatement(sql);
                                 preparedStatement.setString(1, String.valueOf(idButton));
@@ -969,12 +975,24 @@ public class Main extends javax.swing.JFrame {
                                 }
                                 preparedStatement.setInt(4, id);
                                 preparedStatement.execute();
-                                preparedStatement.close();
-                                connection.close();
+//                                preparedStatement.close();
+//                                connection.close();
                             }
                         }
+                        connection.commit();
+                        connection.close();
+//                        if (!sqlInsertNotas.isBlank()) {
+//                            System.out.println("BEGIN TRANSACTION;"+sqlInsertNotas+"COMMIT;");
+//                            connection = myConnection.getMyConnection();
+//                            preparedStatement = connection.prepareStatement("BEGIN TRANSACTION;"+sqlInsertNotas+"COMMIT;");
+//                            preparedStatement.execute();
+//                            preparedStatement.close();
+//                            connection.close();                            
                         JOptionPane.showMessageDialog(this, "Shape adicionado com sucesso!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
                         this.list1.add(id + "-" + nome);
+                        /*} else {
+                            JOptionPane.showMessageDialog(this, "Erro em salvar o shape! Nenhum nota definida!", "Guitar Scale", JOptionPane.ERROR_MESSAGE);                            
+                        }*/
                     } else {
                         JOptionPane.showMessageDialog(this, "Erro em salvar o shape!", "Guitar Scale", JOptionPane.ERROR_MESSAGE);
                         connection.close();
@@ -1022,9 +1040,7 @@ public class Main extends javax.swing.JFrame {
                         }
                         preparedStatement.close();
                         connection.close();
-
                         this.idShapeRestaurado = id;
-
                         this.jButton45.setVisible(true);
                     } catch (SQLException ex) {
                         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -1054,10 +1070,13 @@ public class Main extends javax.swing.JFrame {
                             preparedStatement.setInt(1, this.idShapeRestaurado);
                             preparedStatement.execute();
                             preparedStatement.close();
+                            connection.close();
                         } catch (SQLException ex) {
                             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         Iterator iterator = this.violao.entrySet().iterator();
+                        connection = myConnection.getMyConnection();
+                        connection.setAutoCommit(false);
                         while (iterator.hasNext()) {
                             Entry<Integer, JButton> entry = (Entry) iterator.next();
                             int idButton = entry.getKey();
@@ -1075,13 +1094,15 @@ public class Main extends javax.swing.JFrame {
                                     }
                                     preparedStatement.setInt(4, this.idShapeRestaurado);
                                     preparedStatement.execute();
-                                    preparedStatement.close();
+//                                    preparedStatement.close();
                                 } catch (SQLException ex) {
                                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
 //                                  break;
                                 }
                             }
                         }
+                        connection.commit();
+                        connection.close();
                         JOptionPane.showMessageDialog(this, "Shape atualizado com sucesso!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } else {
@@ -1263,8 +1284,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void deletarShape() {
-                
-        
+
         int resp = JOptionPane.showConfirmDialog(this, "Deletar?", "GuitarScale", JOptionPane.YES_NO_OPTION);
         boolean resposta = (resp == JOptionPane.YES_OPTION);
         if (resposta) {
