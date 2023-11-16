@@ -989,7 +989,11 @@ public class Main extends javax.swing.JFrame {
 //                            preparedStatement.close();
 //                            connection.close();                            
                         JOptionPane.showMessageDialog(this, "Shape adicionado com sucesso!", "Guitar Scale", JOptionPane.INFORMATION_MESSAGE);
-                        this.list1.add(id + "-" + nome);
+                        this.list1.add(id + "-" + nome);                        
+//                        this.list1.select(this.list1.getItems().length);
+//                        this.list1.select(this.list1.getItemCount());                        
+//                        this.idShapeRestaurado = id;
+//                        this.jButton45.setVisible(true);                        
                         /*} else {
                             JOptionPane.showMessageDialog(this, "Erro em salvar o shape! Nenhum nota definida!", "Guitar Scale", JOptionPane.ERROR_MESSAGE);                            
                         }*/
