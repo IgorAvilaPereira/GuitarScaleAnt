@@ -16,7 +16,6 @@ import java.sql.*;
  * @author iapereira
  */
 public class ConexaoSQLite {
-
     private String url;
 
     public Connection getMyConnection() {
