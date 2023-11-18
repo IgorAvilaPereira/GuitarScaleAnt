@@ -256,7 +256,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton5);
-        jButton5.setBounds(370, 40, 40, 30);
+        jButton5.setBounds(380, 40, 40, 30);
 
         jButton6.setText("jButton6");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -274,7 +274,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton7);
-        jButton7.setBounds(580, 40, 40, 30);
+        jButton7.setBounds(590, 40, 40, 30);
 
         jButton8.setText("jButton8");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -319,7 +319,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton12);
-        jButton12.setBounds(370, 100, 40, 30);
+        jButton12.setBounds(380, 100, 40, 30);
 
         jButton13.setText("jButton13");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -337,7 +337,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton14);
-        jButton14.setBounds(580, 100, 40, 30);
+        jButton14.setBounds(590, 100, 40, 30);
 
         jButton15.setText("jButton15");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -382,7 +382,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton19);
-        jButton19.setBounds(370, 160, 40, 30);
+        jButton19.setBounds(380, 160, 40, 30);
 
         jButton20.setText("jButton20");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -400,7 +400,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton21);
-        jButton21.setBounds(580, 160, 40, 30);
+        jButton21.setBounds(590, 160, 40, 30);
 
         jButton22.setText("jButton22");
         jButton22.addActionListener(new java.awt.event.ActionListener() {
@@ -436,7 +436,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton26);
-        jButton26.setBounds(370, 220, 40, 30);
+        jButton26.setBounds(380, 220, 40, 30);
 
         jButton27.setText("jButton27");
         jButton27.addActionListener(new java.awt.event.ActionListener() {
@@ -454,7 +454,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton28);
-        jButton28.setBounds(580, 220, 40, 30);
+        jButton28.setBounds(590, 220, 40, 30);
 
         jButton29.setText("jButton29");
         jButton29.addActionListener(new java.awt.event.ActionListener() {
@@ -508,7 +508,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton33);
-        jButton33.setBounds(370, 280, 40, 30);
+        jButton33.setBounds(380, 280, 40, 30);
 
         jButton34.setText("jButton34");
         jButton34.addActionListener(new java.awt.event.ActionListener() {
@@ -526,7 +526,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton35);
-        jButton35.setBounds(580, 280, 40, 30);
+        jButton35.setBounds(590, 280, 40, 30);
 
         jButton36.setText("jButton36");
         jButton36.addActionListener(new java.awt.event.ActionListener() {
@@ -571,7 +571,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton40);
-        jButton40.setBounds(370, 340, 40, 30);
+        jButton40.setBounds(380, 340, 40, 30);
 
         jButton41.setText("jButton41");
         jButton41.addActionListener(new java.awt.event.ActionListener() {
@@ -589,7 +589,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton42);
-        jButton42.setBounds(580, 340, 40, 30);
+        jButton42.setBounds(590, 340, 40, 30);
 
         jButton43.setText("jButton43");
         jButton43.addActionListener(new java.awt.event.ActionListener() {
