@@ -38,6 +38,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() throws SQLException {
         initComponents();
+        this.setTitle("GuitarScaleAnt");
         String path = "src/";
         File file = new File(path);
         String absolutePath = file.getAbsolutePath();
@@ -627,7 +628,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         getContentPane().add(list1);
-        list1.setBounds(810, 30, 170, 290);
+        list1.setBounds(790, 20, 200, 320);
 
         jButton45.setText("Atualizar");
         jButton45.addActionListener(new java.awt.event.ActionListener() {
