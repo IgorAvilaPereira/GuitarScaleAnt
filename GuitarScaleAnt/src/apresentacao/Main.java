@@ -1182,6 +1182,7 @@ public class Main extends javax.swing.JFrame {
                 try {
                     new Main().setVisible(true);
                 } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro em carregar a aplicação!", "GuitarScaleAnt", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
