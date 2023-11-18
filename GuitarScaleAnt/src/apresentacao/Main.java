@@ -23,7 +23,6 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import persistencia.ConexaoSQLite;
 import persistencia.OSInfo;
-import testes.CreateRoundButton;
 
 /**
  *
