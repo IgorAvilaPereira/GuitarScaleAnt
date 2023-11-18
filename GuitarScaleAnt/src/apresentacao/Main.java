@@ -19,6 +19,8 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import persistencia.ConexaoSQLite;
 import persistencia.OSInfo;
 import testes.CreateRoundButton;
@@ -141,44 +143,44 @@ public class Main extends javax.swing.JFrame {
         jButton3 = new CreateRoundButton();
         jButton4 = new CreateRoundButton();
         jButton5 = new CreateRoundButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        jButton6 = new CreateRoundButton();
+        jButton7 = new CreateRoundButton();
+        jButton8 = new CreateRoundButton();
         jButton9 = new CreateRoundButton();
         jButton10 = new CreateRoundButton();
         jButton11 = new CreateRoundButton();
         jButton12 = new CreateRoundButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        jButton13 = new CreateRoundButton();
+        jButton14 = new CreateRoundButton();
+        jButton15 = new CreateRoundButton();
         jButton16 = new CreateRoundButton();
         jButton17 = new CreateRoundButton();
         jButton18 = new CreateRoundButton();
         jButton19 = new CreateRoundButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
+        jButton20 = new CreateRoundButton();
+        jButton21 = new CreateRoundButton();
+        jButton22 = new CreateRoundButton();
         jButton24 = new CreateRoundButton();
         jButton25 = new CreateRoundButton();
         jButton26 = new CreateRoundButton();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
+        jButton27 = new CreateRoundButton();
+        jButton28 = new CreateRoundButton();
+        jButton29 = new CreateRoundButton();
         jButton30 = new CreateRoundButton();
         jButton23 = new CreateRoundButton();
         jButton31 = new CreateRoundButton();
         jButton32 = new CreateRoundButton();
         jButton33 = new CreateRoundButton();
-        jButton34 = new javax.swing.JButton();
-        jButton35 = new javax.swing.JButton();
-        jButton36 = new javax.swing.JButton();
+        jButton34 = new CreateRoundButton();
+        jButton35 = new CreateRoundButton();
+        jButton36 = new CreateRoundButton();
         jButton37 = new CreateRoundButton();
         jButton38 = new CreateRoundButton();
         jButton39 = new CreateRoundButton();
         jButton40 = new CreateRoundButton();
-        jButton41 = new javax.swing.JButton();
-        jButton42 = new javax.swing.JButton();
-        jButton43 = new javax.swing.JButton();
+        jButton41 = new CreateRoundButton();
+        jButton42 = new CreateRoundButton();
+        jButton43 = new CreateRoundButton();
         jButton1 = new javax.swing.JButton();
         jButton44 = new javax.swing.JButton();
         list1 = new java.awt.List();
@@ -245,7 +247,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(260, 40, 40, 30);
+        jButton4.setBounds(270, 40, 40, 30);
 
         jButton5.setText("jButton5");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +265,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton6);
-        jButton6.setBounds(460, 40, 78, 23);
+        jButton6.setBounds(480, 40, 40, 30);
 
         jButton7.setText("jButton7");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -272,7 +274,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton7);
-        jButton7.setBounds(560, 40, 78, 23);
+        jButton7.setBounds(580, 40, 40, 30);
 
         jButton8.setText("jButton8");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -281,7 +283,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton8);
-        jButton8.setBounds(670, 40, 78, 23);
+        jButton8.setBounds(690, 40, 40, 30);
 
         jButton9.setText("jButton9");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -308,7 +310,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton11);
-        jButton11.setBounds(260, 100, 40, 30);
+        jButton11.setBounds(270, 100, 40, 30);
 
         jButton12.setText("jButton12");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -326,7 +328,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton13);
-        jButton13.setBounds(460, 100, 85, 23);
+        jButton13.setBounds(480, 100, 40, 30);
 
         jButton14.setText("jButton14");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -335,7 +337,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton14);
-        jButton14.setBounds(560, 100, 85, 23);
+        jButton14.setBounds(580, 100, 40, 30);
 
         jButton15.setText("jButton15");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -344,7 +346,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton15);
-        jButton15.setBounds(670, 100, 85, 23);
+        jButton15.setBounds(690, 100, 40, 30);
 
         jButton16.setText("jButton16");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -371,7 +373,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton18);
-        jButton18.setBounds(260, 160, 40, 30);
+        jButton18.setBounds(270, 160, 40, 30);
 
         jButton19.setText("jButton19");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
@@ -389,7 +391,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton20);
-        jButton20.setBounds(460, 160, 85, 23);
+        jButton20.setBounds(480, 160, 40, 30);
 
         jButton21.setText("jButton21");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -398,7 +400,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton21);
-        jButton21.setBounds(560, 160, 85, 23);
+        jButton21.setBounds(580, 160, 40, 30);
 
         jButton22.setText("jButton22");
         jButton22.addActionListener(new java.awt.event.ActionListener() {
@@ -407,7 +409,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton22);
-        jButton22.setBounds(670, 160, 85, 23);
+        jButton22.setBounds(690, 160, 40, 30);
 
         jButton24.setText("jButton24");
         jButton24.addActionListener(new java.awt.event.ActionListener() {
@@ -425,7 +427,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton25);
-        jButton25.setBounds(260, 220, 40, 30);
+        jButton25.setBounds(270, 220, 40, 30);
 
         jButton26.setText("jButton26");
         jButton26.addActionListener(new java.awt.event.ActionListener() {
@@ -443,7 +445,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton27);
-        jButton27.setBounds(460, 220, 85, 23);
+        jButton27.setBounds(480, 220, 40, 30);
 
         jButton28.setText("jButton28");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
@@ -452,7 +454,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton28);
-        jButton28.setBounds(560, 220, 85, 23);
+        jButton28.setBounds(580, 220, 40, 30);
 
         jButton29.setText("jButton29");
         jButton29.addActionListener(new java.awt.event.ActionListener() {
@@ -461,7 +463,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton29);
-        jButton29.setBounds(670, 220, 85, 23);
+        jButton29.setBounds(690, 220, 40, 30);
 
         jButton30.setText("jButton30");
         jButton30.addActionListener(new java.awt.event.ActionListener() {
@@ -497,7 +499,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton32);
-        jButton32.setBounds(260, 280, 40, 30);
+        jButton32.setBounds(270, 280, 40, 30);
 
         jButton33.setText("jButton33");
         jButton33.addActionListener(new java.awt.event.ActionListener() {
@@ -515,7 +517,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton34);
-        jButton34.setBounds(460, 280, 85, 23);
+        jButton34.setBounds(480, 280, 40, 30);
 
         jButton35.setText("jButton35");
         jButton35.addActionListener(new java.awt.event.ActionListener() {
@@ -524,7 +526,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton35);
-        jButton35.setBounds(560, 280, 85, 23);
+        jButton35.setBounds(580, 280, 40, 30);
 
         jButton36.setText("jButton36");
         jButton36.addActionListener(new java.awt.event.ActionListener() {
@@ -533,7 +535,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton36);
-        jButton36.setBounds(670, 280, 85, 23);
+        jButton36.setBounds(690, 280, 40, 30);
 
         jButton37.setText("jButton37");
         jButton37.addActionListener(new java.awt.event.ActionListener() {
@@ -560,7 +562,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton39);
-        jButton39.setBounds(260, 340, 40, 30);
+        jButton39.setBounds(270, 340, 40, 30);
 
         jButton40.setText("jButton40");
         jButton40.addActionListener(new java.awt.event.ActionListener() {
@@ -578,7 +580,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton41);
-        jButton41.setBounds(460, 340, 85, 23);
+        jButton41.setBounds(480, 340, 40, 30);
 
         jButton42.setText("jButton42");
         jButton42.addActionListener(new java.awt.event.ActionListener() {
@@ -587,7 +589,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton42);
-        jButton42.setBounds(560, 340, 85, 23);
+        jButton42.setBounds(580, 340, 40, 30);
 
         jButton43.setText("jButton43");
         jButton43.addActionListener(new java.awt.event.ActionListener() {
@@ -596,7 +598,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton43);
-        jButton43.setBounds(670, 340, 85, 23);
+        jButton43.setBounds(690, 340, 40, 30);
 
         jButton1.setPreferredSize(new java.awt.Dimension(500, 500));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -1142,7 +1144,7 @@ public class Main extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1174,6 +1176,7 @@ public class Main extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+//           UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
