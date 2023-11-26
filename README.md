@@ -9,6 +9,7 @@ Software desenvolvido em Java para auxiliar professores e estudantes de violão 
 
 ### Modo Gráfico
 
+0) Extraia o zip baixado através do link https://github.com/IgorAvilaPereira/GuitarScaleAnt/archive/refs/heads/main.zip
 1) Vá até a pasta **/src** e copie o arquivo **database.db**
 2) Cole na pasta **/dist**
 3) O executável **.jar** está na pasta **/dist**. 
@@ -16,6 +17,7 @@ Software desenvolvido em Java para auxiliar professores e estudantes de violão 
 
 ## No terminal 
 
+0) Extraia o zip baixado através do link https://github.com/IgorAvilaPereira/GuitarScaleAnt/archive/refs/heads/main.zip
 1) Vá até a pasta **/src** e copie o arquivo **database.db**
 2) Cole na pasta **/dist**
 3) O executável **.jar** está na pasta **/dist**. 
