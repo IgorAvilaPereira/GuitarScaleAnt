@@ -5,13 +5,21 @@ Software desenvolvido em Java para auxiliar professores e estudantes de violão 
 ![](demo.gif)
 
 
-## Executar
+## Instalação/Execução
 
-O executável **.jar** está na pasta **dist**. 
-Funcionará clicando 2 cliques ou pelo terminal. 
+### Modo Gráfico
 
-No terminal execute:
+1) Vá até a pasta **/src** e copie o arquivo **database.db**
+2) Cole na pasta **/dist**
+3) O executável **.jar** está na pasta **/dist**. 
+4) Execute o arquivo clicando 2x no **.jar** da pasta **/dist**. 
 
+## No terminal 
+
+1) Vá até a pasta **/src** e copie o arquivo **database.db**
+2) Cole na pasta **/dist**
+3) O executável **.jar** está na pasta **/dist**. 
+4) Execute:
 ```
 java -jar GuitarScaleAnt.jar 
 ```
