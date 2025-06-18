@@ -6,7 +6,6 @@ Software desenvolvido em Java para auxiliar professores e estudantes de violão 
 
 ![](demo.gif)
 
-
 ### 🔧 Funcionalidades principais
 
 * **Desenho de escalas**: Visualize escalas musicais no braço do violão ou guitarra.
@@ -15,37 +14,11 @@ Software desenvolvido em Java para auxiliar professores e estudantes de violão 
 
 ### 📥 Como instalar e executar
 
-#### Modo Gráfico
-
 1. Baixe o arquivo ZIP do repositório: [GuitarScaleAnt.zip](https://github.com/IgorAvilaPereira/GuitarScaleAnt/archive/refs/heads/main.zip)
 2. Extraia o conteúdo do arquivo ZIP.
 3. Vá até a pasta `/src` e copie o arquivo `database.db`.
 4. Cole o arquivo copiado na pasta `/dist`.
 5. Execute o arquivo `GuitarScaleAnt.jar` para iniciar o aplicativo.
-
-#### Modo Console
-
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/IgorAvilaPereira/GuitarScaleAnt.git
-   ```
-
-
-2\. Compile o código-fonte:
-
-```bash
-javac -d bin src/*.java
-```
-
-
-3\. Execute o aplicativo:
-
-```bash
-java -cp bin GuitarScaleAnt
-```
-
-
 
 ### 📂 Estrutura do repositório
 
