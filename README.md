@@ -20,6 +20,16 @@ Software desenvolvido em Java para auxiliar professores e estudantes de violão 
 4. Cole o arquivo copiado na pasta `/dist`.
 5. Execute o arquivo `GuitarScaleAnt.jar` para iniciar o aplicativo.
 
+## 🧪 Tecnologias Utilizadas no GuitarScaleAnt
+
+* Java (JDK): Linguagem principal do projeto.
+
+* Swing: Biblioteca de GUI usada para desenhar a interface gráfica (botões, janelas, etc.).
+
+* AWT (Abstract Window Toolkit): Utilizado junto com o Swing para desenho gráfico no braço do violão.
+
+* SQLite: Banco de dados local usado para armazenar escalas e dedilhados.
+
 ### 📂 Estrutura do repositório
 
 * `src/`: Código-fonte do aplicativo.
